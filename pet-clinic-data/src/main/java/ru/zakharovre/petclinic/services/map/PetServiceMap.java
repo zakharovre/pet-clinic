@@ -2,9 +2,9 @@ package ru.zakharovre.petclinic.services.map;
 
 import java.util.Set;
 import ru.zakharovre.petclinic.models.Pet;
-import ru.zakharovre.petclinic.services.CrudService;
+import ru.zakharovre.petclinic.services.PetService;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {

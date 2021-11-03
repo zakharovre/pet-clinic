@@ -2,9 +2,9 @@ package ru.zakharovre.petclinic.services.map;
 
 import java.util.Set;
 import ru.zakharovre.petclinic.models.Owner;
-import ru.zakharovre.petclinic.services.CrudService;
+import ru.zakharovre.petclinic.services.OwnerService;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -14,6 +14,11 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner findById(Long id) {
         return super.findByID(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
     }
 
     @Override
@@ -30,4 +35,5 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     public void delete(Owner owner) {
         super.delete(owner);
     }
+
 }
