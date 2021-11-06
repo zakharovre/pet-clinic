@@ -1,8 +1,8 @@
 package ru.zakharovre.petclinic.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import ru.zakharovre.petclinic.models.Vet;
 
-public interface VetRepository extends JpaRepository<Vet, Long> {
+public interface VetRepository extends CrudRepository<Vet, Long> {
 
 }

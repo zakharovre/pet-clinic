@@ -1,8 +1,8 @@
 package ru.zakharovre.petclinic.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import ru.zakharovre.petclinic.models.Visit;
 
-public interface VisitRepository  extends JpaRepository<Visit, Long> {
+public interface VisitRepository  extends CrudRepository<Visit, Long> {
 
 }
