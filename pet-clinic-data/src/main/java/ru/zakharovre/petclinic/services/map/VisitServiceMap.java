@@ -1,9 +1,11 @@
 package ru.zakharovre.petclinic.services.map;
 
 import java.util.Set;
+import org.springframework.stereotype.Service;
 import ru.zakharovre.petclinic.models.Visit;
 import ru.zakharovre.petclinic.services.VisitService;
 
+@Service
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override

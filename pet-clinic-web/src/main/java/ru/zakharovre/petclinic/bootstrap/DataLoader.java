@@ -11,10 +11,12 @@ import ru.zakharovre.petclinic.models.Pet;
 import ru.zakharovre.petclinic.models.PetType;
 import ru.zakharovre.petclinic.models.Speciality;
 import ru.zakharovre.petclinic.models.Vet;
+import ru.zakharovre.petclinic.models.Visit;
 import ru.zakharovre.petclinic.services.OwnerService;
 import ru.zakharovre.petclinic.services.PetTypeService;
 import ru.zakharovre.petclinic.services.SpecialityService;
 import ru.zakharovre.petclinic.services.VetService;
+import ru.zakharovre.petclinic.services.VisitService;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -23,13 +25,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-            SpecialityService specialityService) {
+            SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -92,6 +96,12 @@ public class DataLoader implements CommandLineRunner {
         ownerService.save(owner2);
 
         System.out.println("Owners have been loaded");
+
+        Visit visit = new Visit();
+        visit.setDate(LocalDate.now());
+        visit.setDescription("wet shit");
+        visit.setPet(loverPet);
+        visitService.save(visit);
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Hannibal");
