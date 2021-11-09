@@ -1,6 +1,7 @@
 package ru.zakharovre.petclinic.services.map;
 
 import java.util.Set;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import ru.zakharovre.petclinic.models.Owner;
 import ru.zakharovre.petclinic.models.Pet;
@@ -9,6 +10,7 @@ import ru.zakharovre.petclinic.services.PetService;
 import ru.zakharovre.petclinic.services.PetTypeService;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetService petService;
@@ -31,7 +33,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(String lastName) {
-        return null;
+        return super.findAll().stream()
+                .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

@@ -1,9 +1,6 @@
 package ru.zakharovre.petclinic.bootstrap;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import ru.zakharovre.petclinic.models.Owner;
@@ -58,9 +55,9 @@ public class DataLoader implements CommandLineRunner {
         Speciality radiology = new Speciality();
         radiology.setDescription("Radiology");
         Speciality surgery = new Speciality();
-        radiology.setDescription("Surgery");
+        surgery.setDescription("Surgery");
         Speciality dentistry = new Speciality();
-        radiology.setDescription("Dentistry");
+        dentistry.setDescription("Dentistry");
         specialityService.save(radiology);
         specialityService.save(surgery);
         specialityService.save(dentistry);
